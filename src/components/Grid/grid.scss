@@ -1,0 +1,101 @@
+@import "../../assets/styles/index.scss";
+
+$grid-lg-margins: 32px;
+$grid-lg-gap: 24px;
+
+$grid-md-margins: 28px;
+
+$grid-sm-margins: 20px;
+
+$grid-xs-margins: 16px;
+$grid-xs-gap: 16px;
+
+.grid {
+  max-width: 1288px;
+  margin: 0 auto;
+  padding: $grid-xs-gap 0;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-xs-gap;
+    margin: 0 $grid-xs-margins;
+  }
+
+  .col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@include screen-min(xs) {
+  .grid {
+    @each $col in $cols {
+      .col-xs-#{$col} {
+        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+      }
+    }
+  }
+}
+
+@include screen-min(sm) {
+  .grid {
+    &__wrapper {
+      gap: $grid-xs-gap;
+      margin: 0 $grid-sm-margins;
+    }
+
+    @each $col in $cols {
+      .col-sm-#{$col} {
+        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+      }
+    }
+  }
+}
+
+@include screen-min(md) {
+  .grid {
+    &__wrapper {
+      margin: 0 $grid-md-margins;
+    }
+
+
+    @each $col in $cols {
+      .col-md-#{$col} {
+        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+      }
+    }
+  }
+}
+
+@include screen-min(lg) {
+  .grid {
+    padding: $grid-lg-gap 0;
+
+    &__wrapper {
+      gap: $grid-lg-gap;
+      margin: 0 $grid-lg-margins;
+    }
+
+    @each $col in $cols {
+      .col-lg-#{$col} {
+        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+      }
+    }
+  }
+}
+
+@include screen-min(xl) {
+  .grid {
+    @each $col in $cols {
+      .col-xl-#{$col} {
+        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+      }
+    }
+  }
+}
