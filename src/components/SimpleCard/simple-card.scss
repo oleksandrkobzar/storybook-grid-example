@@ -1,0 +1,19 @@
+@import "../../assets/styles/index.scss";
+
+.simple-card {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    color: transparent;
+  }
+}
