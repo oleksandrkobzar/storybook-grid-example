@@ -1,11 +1,19 @@
 # Storybook grid example
 
-This app is a grid example using React, Storybook and SCSS. Main of my goal is representative my skills in building grid for different devices and using [Storybook](https://storybook.js.org/) for building UI components in isolation.
+This app is a grid example using React, Storybook and SCSS. Main of my goal is representative my skills in building grid
+for different devices and using [Storybook](https://storybook.js.org/) for building UI components in isolation.
 
-I had done [grid example](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/iframe.html?args=&id=grid--default&viewMode=story) where ten card are flexibly to screen width of diferent devices according to specification. Also, All images are responsive to help to get the best perfomance and desing control on different screens of devices and Retina screens.
+I have
+done [grid example](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/?path=/story/grid--with-cards&args=columnCount:3)
+with four cards according to "Grid" and "Cards" specifications. Additionally, I have
+introduced [card story](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/?path=/story/card--default) and
+[grid](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/?path=/story/grid--simple) with ten cards where they are flexibly to
+screen width of different devices according to specification. Also, All images are responsive to help to get the
+best performance and design control on different screens of devices and Retina screens.
 
-## Demo 
-[Storybook grid example](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/?path=/story/grid--default) 
+## Demo
+
+[Storybook grid example](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/)
 
 ## Installing
 
@@ -17,10 +25,11 @@ I had done [grid example](https://dev7778.dp9gsdsmko0pk.amplifyapp.com/iframe.ht
     ```
     npm install
     ``` 
-    
+
 ## Run project
 
 ### Storybook
+
 ```
 npm run storybook
 ```

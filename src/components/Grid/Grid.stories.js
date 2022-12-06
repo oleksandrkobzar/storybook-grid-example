@@ -104,7 +104,7 @@ const SimpleTemplate = (args) => (
 export const WithCards = Template.bind({});
 WithCards.args = {
   whiteBackground: true,
-  columnCount: 6
+  columnCount: 3
 };
 
 export const Simple = SimpleTemplate.bind({});
