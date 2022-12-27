@@ -14,10 +14,25 @@ export default {
     whiteBackground: {
       description: "White background"
     },
-    columnCount: {
-      description: "Column count of Card",
+    columnCountOnMobile: {
+      description: "Column count of Card on mobile (max 4)",
+      options: [2, 4],
+      control: { type: "radio" }
+    },
+    columnCountOnTablet: {
+      description: "Column count of Card on tablet (max 6)",
+      options: [2, 3, 6],
+      control: { type: "radio" }
+    },
+    columnCountOnDesktop: {
+      description: "Column count of Card on desktop (max 12)",
       options: [3, 4, 6, 12],
       control: { type: "radio" }
+    },
+    elementCount: {
+      description: "Element count in Grid",
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      control: { type: "select" }
     },
     children: {
       control: false
@@ -27,42 +42,17 @@ export default {
 
 const Template = (args) => (
   <Grid>
-    <GridElement
-      xs={args.columnCount}
-      sm={args.columnCount}
-      md={args.columnCount}
-      lg={args.columnCount}
-      xl={args.columnCount}
-    >
-      <Card whiteBackground={args.whiteBackground} />
-    </GridElement>
-    <GridElement
-      xs={args.columnCount}
-      sm={args.columnCount}
-      md={args.columnCount}
-      lg={args.columnCount}
-      xl={args.columnCount}
-    >
-      <Card whiteBackground={args.whiteBackground} />
-    </GridElement>
-    <GridElement
-      xs={args.columnCount}
-      sm={args.columnCount}
-      md={args.columnCount}
-      lg={args.columnCount}
-      xl={args.columnCount}
-    >
-      <Card whiteBackground={args.whiteBackground} />
-    </GridElement>
-    <GridElement
-      xs={args.columnCount}
-      sm={args.columnCount}
-      md={args.columnCount}
-      lg={args.columnCount}
-      xl={args.columnCount}
-    >
-      <Card whiteBackground={args.whiteBackground} />
-    </GridElement>
+    {Array.from({ length: args.elementCount }).map(() => (
+      <GridElement
+        xs={args.columnCountOnMobile * 3}
+        sm={args.columnCountOnTablet * 2}
+        md={args.columnCountOnTablet * 2}
+        lg={args.columnCountOnDesktop}
+        xl={args.columnCountOnDesktop}
+      >
+        <Card whiteBackground={args.whiteBackground} />
+      </GridElement>
+    ))}
   </Grid>
 );
 
@@ -104,7 +94,10 @@ const SimpleTemplate = (args) => (
 export const WithCards = Template.bind({});
 WithCards.args = {
   whiteBackground: true,
-  columnCount: 3
+  columnCountOnMobile: 2,
+  columnCountOnTablet: 3,
+  columnCountOnDesktop: 3,
+  elementCount: 4
 };
 
 export const Simple = SimpleTemplate.bind({});
