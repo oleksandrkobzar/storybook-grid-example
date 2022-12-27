@@ -3,17 +3,25 @@
 .grid {
   max-width: 1288px;
   margin: 0 auto;
-  padding: $grid-xs-gap 0;
+  padding: $grid-xs-gap $grid-xs-paddings;
 
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: $grid-xs-gap;
-    margin: 0 $grid-xs-margins;
+    margin-left: calc(-#{$grid-xs-gap} / 2);
+    margin-right: calc(-#{$grid-xs-gap} / 2);
+    margin-top: -#{$grid-xs-gap};
+
+    & > * {
+      padding-left: $grid-xs-gap / 2;
+      padding-right: $grid-xs-gap / 2;
+      padding-top: $grid-xs-gap;
+      width: 100%;
+    }
   }
 
   .col {
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     max-width: 100%;
   }
 }
@@ -22,8 +30,8 @@
   .grid {
     @each $col in $cols {
       .col-xs-#{$col} {
-        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
-        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        flex: 0 0 calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
+        max-width: calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
       }
     }
   }
@@ -31,15 +39,12 @@
 
 @include screen-min(sm) {
   .grid {
-    &__wrapper {
-      gap: $grid-xs-gap;
-      margin: 0 $grid-sm-margins;
-    }
+    padding: $grid-xs-gap $grid-sm-paddings;
 
     @each $col in $cols {
       .col-sm-#{$col} {
-        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
-        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        flex: 0 0 calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
+        max-width: calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
       }
     }
   }
@@ -47,15 +52,12 @@
 
 @include screen-min(md) {
   .grid {
-    &__wrapper {
-      margin: 0 $grid-md-margins;
-    }
-
+    padding: $grid-xs-gap $grid-md-paddings;
 
     @each $col in $cols {
       .col-md-#{$col} {
-        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
-        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-xs-gap}) / (12 / #{$col}));
+        flex: 0 0 calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
+        max-width: calc(100% / (12 / #{$col}) - #{$grid-xs-gap});
       }
     }
   }
@@ -63,17 +65,26 @@
 
 @include screen-min(lg) {
   .grid {
-    padding: $grid-lg-gap 0;
+    padding: $grid-lg-gap $grid-lg-paddings;
 
     &__wrapper {
-      gap: $grid-lg-gap;
-      margin: 0 $grid-lg-margins;
+      margin-left: calc(-#{$grid-lg-gap} / 2);
+      margin-right: calc(-#{$grid-lg-gap} / 2);
+      margin-top: -#{$grid-lg-gap};
+
+      & > * {
+        padding-left: $grid-lg-gap / 2;
+        padding-right: $grid-lg-gap / 2;
+        padding-top: $grid-lg-gap;
+      }
     }
+
+
 
     @each $col in $cols {
       .col-lg-#{$col} {
-        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
-        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+        flex: 0 0 calc(100% / (12 / #{$col}) - #{$grid-lg-gap});
+        max-width: calc(100% / (12 / #{$col}) - #{$grid-lg-gap});
       }
     }
   }
@@ -83,8 +94,8 @@
   .grid {
     @each $col in $cols {
       .col-xl-#{$col} {
-        flex: 0 0 calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
-        max-width: calc((100% - (12 / #{$col} - 1) * #{$grid-lg-gap}) / (12 / #{$col}));
+        flex: 0 0 calc(100% / (12 / #{$col}) - #{$grid-lg-gap});
+        max-width: calc(100% / (12 / #{$col}) - #{$grid-lg-gap});
       }
     }
   }
