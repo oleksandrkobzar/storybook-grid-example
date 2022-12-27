@@ -4,11 +4,10 @@ import "../../assets/styles/index.scss";
 
 import Grid from "./index";
 import Card from "../Card";
-import SimpleCard from "../SimpleCard";
 import GridElement from "../GridElement";
 
 export default {
-  title: "Grid",
+  title: "Grid With Cards",
   component: Grid,
   argTypes: {
     whiteBackground: {
@@ -35,7 +34,9 @@ export default {
       control: { type: "select" }
     },
     children: {
-      control: false
+      table: {
+        disable: true
+      }
     }
   }
 };
@@ -56,49 +57,11 @@ const Template = (args) => (
   </Grid>
 );
 
-const SimpleTemplate = (args) => (
-  <Grid>
-    <GridElement xs={6} md={4} lg={3}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement xs={6} md={4} lg={3}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement md={4} lg={3}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement xs={6} md={6} lg={3}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement xs={6} md={6} lg={4}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement lg={4}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement xs={6} md={4} lg={4}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement xs={6} md={4} lg={6}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement md={4} lg={6}>
-      <SimpleCard />
-    </GridElement>
-    <GridElement>
-      <SimpleCard />
-    </GridElement>
-  </Grid>
-);
-
-export const WithCards = Template.bind({});
-WithCards.args = {
+export const Default = Template.bind({});
+Default.args = {
   whiteBackground: true,
   columnCountOnMobile: 2,
   columnCountOnTablet: 3,
   columnCountOnDesktop: 3,
   elementCount: 4
 };
-
-export const Simple = SimpleTemplate.bind({});
-Simple.args = {};
