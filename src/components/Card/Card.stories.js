@@ -12,9 +12,6 @@ export default {
   argTypes: {
     whiteBackground: {
       description: "White background"
-    },
-    linkUrl: {
-      control: false
     }
   }
 };
